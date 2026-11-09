@@ -1,0 +1,135 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --navy-950: #07142F;
+  --navy-900: #0B1F4B;
+  --navy-700: #17357C;
+  --navy-500: #2E56A8;
+  --navy-200: #C9D5EE;
+  
+  --gold-500: #D4AF37;
+  --gold-700: #8A6A0A;
+  --gold-200: #F1E2A6;
+  
+  --red-700: #9B1C24;
+  --red-900: #5A0D12;
+  
+  --ivory-50: #FBF9F4;
+  --surface: #FFFFFF;
+  --border: #E5E1D6;
+  
+  --text-1: #0F1B33;
+  --text-2: #55607A;
+  --neutral-muted: #8A94A8;
+}
+
+.dark {
+  --navy-950: #040A18;
+  --navy-900: #081432;
+  --navy-700: #132B66;
+  --navy-500: #3D6DCB;
+  --navy-200: #8BA2D4;
+
+  --gold-500: #E5C358;
+  --gold-700: #BF9B24;
+  --gold-200: #5A4A14;
+
+  --red-700: #C9343E;
+  --red-900: #82151D;
+
+  --ivory-50: #081225;
+  --surface: #0F1E3D;
+  --border: #223357;
+
+  --text-1: #EAF0FF;
+  --text-2: #9FB1D6;
+  --neutral-muted: #7E8DA8;
+}
+
+@theme {
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-700: var(--navy-700);
+  --color-navy-500: var(--navy-500);
+  --color-navy-200: var(--navy-200);
+
+  --color-gold-500: var(--gold-500);
+  --color-gold-700: var(--gold-700);
+  --color-gold-200: var(--gold-200);
+
+  --color-red-700: var(--red-700);
+  --color-red-900: var(--red-900);
+
+  --color-ivory-50: var(--ivory-50);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+
+  --color-text-1: var(--text-1);
+  --color-text-2: var(--text-2);
+  --color-neutral-muted: var(--neutral-muted);
+
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--ivory-50);
+  color: var(--text-1);
+}
+
+.font-serif-heading {
+  font-family: var(--font-serif);
+}
+
+.kpi-card-top-rule {
+  position: relative;
+}
+.kpi-card-top-rule::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--gold-500);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Tabular figures across all numerical outputs */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(138, 148, 168, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(138, 148, 168, 0.5);
+}
+
+/* Print styling */
+@media print {
+  aside, nav, .no-print, header, button:not(.print-include) {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .page-break {
+    page-break-after: always;
+  }
+}
